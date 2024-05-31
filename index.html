@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Burger Bliss</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.4/flowbite.min.css" rel="stylesheet">
+  <style>
+    /* Custom Styles */
+    .hero-bg {
+      background-image: url('https://www.foodiesfeed.com/wp-content/uploads/2023/06/burger-with-melted-cheese.jpg');
+      background-size: cover;
+      background-position: center;
+    }
+  </style>
+</head>
+<body class="bg-gray-100 text-gray-900">
+  <!-- Header -->
+  <header class="fixed w-full bg-white shadow-md">
+    <div class="container mx-auto px-4 py-2 flex justify-between items-center">
+      <a href="#" class="text-2xl font-bold text-red-500">Burger Bliss</a>
+      <nav class="space-x-4">
+        <a href="#" class="text-gray-700 hover:text-red-500">Home</a>
+        <a href="#menu" class="text-gray-700 hover:text-red-500">Menu</a>
+        <a href="#about" class="text-gray-700 hover:text-red-500">About</a>
+        <a href="#contact" class="text-gray-700 hover:text-red-500">Contact</a>
+      </nav>
+      <a href="#" class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600">Order Now</a>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-bg h-screen flex items-center justify-center text-center text-white">
+    <div>
+      <h1 class="text-5xl font-bold mb-4">Welcome to Burger Bliss</h1>
+      <p class="text-xl mb-8">Delicious Burgers, Great Atmosphere</p>
+      <a href="#menu" class="bg-red-500 text-white px-6 py-3 rounded hover:bg-red-600">Explore Our Menu</a>
+    </div>
+  </section>
+
+  
+
+  <!-- Menu Section -->
+  <section id="menu" class="container mx-auto px-4 py-16">
+    <h2 class="text-3xl font-bold text-center mb-8">Our Menu</h2>
+    <div class="tabs mb-8">
+      <ul class="flex justify-center space-x-4">
+        <li><a href="#classic-burgers" class="tab-link active text-gray-700 hover:text-red-500">Classic Burgers</a></li>
+        <li><a href="#signature-burgers" class="tab-link text-gray-700 hover:text-red-500">Signature Burgers</a></li>
+        <li><a href="#sides" class="tab-link text-gray-700 hover:text-red-500">Sides</a></li>
+        <li><a href="#beverages-desserts" class="tab-link text-gray-700 hover:text-red-500">Beverages & Desserts</a></li>
+        <li><a href="#smoothies" class="tab-link text-gray-700 hover:text-red-500">Smoothies</a></li>
+        <li><a href="#salads" class="tab-link text-gray-700 hover:text-red-500">Salads</a></li>
+        <li><a href="#appetizers" class="tab-link text-gray-700 hover:text-red-500">Appetizers</a></li>
+        <li><a href="#chicken-wings" class="tab-link text-gray-700 hover:text-red-500">Chicken & Buffalo Wings</a></li>
+      </ul>
+    </div>
+    <div class="tab-content">
+      <!-- Classic Burgers -->
+      <div id="classic-burgers" class="tab-pane active">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div class="p-4 bg-white rounded shadow-md">
+            <h3 class="text-xl font-bold mb-2">Classic Cheeseburger</h3>
+            <p class="text-gray-700 mb-4">Juicy beef patty, cheddar cheese, lettuce, tomato, pickles, and our signature sauce, all served on a toasted brioche bun.</p>
+            <p class="text-red-500 font-bold">$10.99</p>
+          </div>
+          <div class="p-4 bg-white rounded shadow-md">
+            <h3 class="text-xl font-bold mb-2">Bacon Cheeseburger</h3>
+            <p class="text-gray-700 mb-4">Beef patty, crispy bacon, American cheese, lettuce, tomato, and our special house sauce on a sesame seed bun.</p>
+            <p class="text-red-500 font-bold">$11.99</p>
+          </div>
+          <div class="p-4 bg-white rounded shadow-md">
+            <h3 class="text-xl font-bold mb-2">Double Decker Burger</h3>
+            <p class="text-gray-700 mb-4">Two beef patties, double cheddar cheese, lettuce, tomato, pickles, and a tangy burger sauce on a toasted brioche bun.</p>
+            <p class="text-red-500 font-bold">$13.99</p>
+          </div>
+          <!-- Add more items as needed -->
+        </div>
+      </div>
+      <!-- Signature Burgers -->
+      <div id="signature-burgers" class="tab-pane hidden">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Similar structure to Classic Burgers -->
+          <!-- Add items for Signature Burgers -->
+        </div>
+      </div>
+      <!-- Sides -->
+      <div id="sides" class="tab-pane hidden">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Add items for Sides -->
+        </div>
+      </div>
+      <!-- Beverages & Desserts -->
+      <div id="beverages-desserts" class="tab-pane hidden">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Add items for Beverages & Desserts -->
+        </div>
+      </div>
+      <!-- Smoothies -->
+      <div id="smoothies" class="tab-pane hidden">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Add items for Smoothies -->
+        </div>
+      </div>
+      <!-- Salads -->
+      <div id="salads" class="tab-pane hidden">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Add items for Salads -->
+        </div>
+      </div>
+      <!-- Appetizers -->
+      <div id="appetizers" class="tab-pane hidden">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Add items for Appetizers -->
+        </div>
+      </div>
+      <!-- Chicken & Buffalo Wings -->
+      <div id="chicken-wings" class="tab-pane hidden">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Add items for Chicken & Buffalo Wings -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section id="testimonials" class="bg-white py-16">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center mb-8">What Our Customers Say</h2>
+      <div id="testimonial-carousel" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="flex flex-col items-center">
+              <p class="text-xl text-gray-700 mb-4">"The best burgers I've ever had! Highly recommend Burger Bliss to everyone."</p>
+              <div class="flex items-center">
+                <div class="text-yellow-500 mr-2">★★★★★</div>
+                <p class="text-gray-700">- John Doe</p>
+              </div>
+            </div>
+         
+          </div>
+        </div>
+      </div>
+      <!-- Add more carousel items with testimonials -->
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#testimonial-carousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#testimonial-carousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </button>
+  </div>
+</div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-gray-900 text-white py-8">
+<div class="container mx-auto px-4">
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+    <div>
+      <h3 class="text-lg font-bold mb-4">Follow Us</h3>
+      <div class="flex space-x-4">
+        <a href="#" class="text-gray-300 hover:text-white">Facebook</a>
+        <a href="#" class="text-gray-300 hover:text-white">Twitter</a>
+        <a href="#" class="text-gray-300 hover:text-white">Instagram</a>
+      </div>
+    </div>
+    <div>
+      <h3 class="text-lg font-bold mb-4">Contact Us</h3>
+      <p class="text-gray-300">123 Burger Street</p>
+      <p class="text-gray-300">City, State ZIP</p>
+      <p class="text-gray-300">Phone: (123) 456-7890</p>
+      <p class="text-gray-300">Email: info@burgerbliss.com</p>
+    </div>
+    <div>
+      <h3 class="text-lg font-bold mb-4">Opening Hours</h3>
+      <p class="text-gray-300">Monday - Friday: 11am - 10pm</p>
+      <p class="text-gray-300">Saturday - Sunday: 11am - 11pm</p>
+    </div>
+    <div>
+      <h3 class="text-lg font-bold mb-4">Newsletter</h3>
+      <p class="text-gray-300">Subscribe to our newsletter for latest updates and promotions.</p>
+      <form class="mt-4">
+        <input type="email" class="w-full px-4 py-2 rounded-sm" placeholder="Enter your email">
+        <button type="submit" class="mt-2 bg-red-500 text-white px-4 py-2 rounded-sm hover:bg-red-600">Subscribe</button>
+      </form>
+    </div>
+  </div>
+  <hr class="border-gray-800 my-8">
+  <p class="text-center text-gray-300">© 2024 Burger Bliss. All rights reserved.</p>
+</div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.4/flowbite.min.js"></script>
+</body>
+</html>
