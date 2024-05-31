@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Burger Bliss</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css"  rel="stylesheet" />
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <style>
+    /* Custom Styles */
+    .hero-bg {
+      background-image: url('https://www.foodiesfeed.com/wp-content/uploads/2023/06/burger-with-melted-cheese.jpg');
+      background-size: cover;
+      background-position: center;
+    }
+  </style>
+</head>
+<body class="bg-gray-100 text-gray-900">
+  <!-- Header -->
+  <header class="fixed w-full bg-white shadow-md">
+    <div class="container mx-auto px-4 py-2 flex justify-between items-center">
+      <a href="#" class="text-2xl font-bold text-red-500">Burger Bliss</a>
+      <nav class="space-x-4">
+        <a href="#" class="text-gray-700 hover:text-red-500">Home</a>
+        <a href="#menu" class="text-gray-700 hover:text-red-500">Menu</a>
+        <a href="#about" class="text-gray-700 hover:text-red-500">About</a>
+        <a href="#contact" class="text-gray-700 hover:text-red-500">Contact</a>
+      </nav>
+      <a href="#" class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600">Order Now</a>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-bg h-screen flex items-center justify-center text-center text-white">
+    <div>
+      <h1 class="text-5xl font-bold mb-4">Welcome to Burger Bliss</h1>
+      <p class="text-xl mb-8">Delicious Burgers, Great Atmosphere</p>
+      <a href="#menu" class="bg-red-500 text-white px-6 py-3 rounded hover:bg-red-600">Explore Our Menu</a>
+    </div>
+  </section>
+
+  <!-- Deals Section -->
+  <section id="deals" class="bg-gray-100 py-8">
+    <div class="container mx-auto px-4">
+      <h2 class="text-2xl font-bold text-center mb-4">Featured Deals</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+        <!-- Featured Deals (First 4) -->
+        <!-- Deal 1 -->
+        <div class="bg-white rounded-lg shadow-md overflow-hidden">
+          <img src="https://media.istockphoto.com/id/183245675/photo/hot-chicken-wing-platter.jpg?s=1024x1024&w=is&k=20&c=T1VSWrXNoTXkGWomNHIc25twM2T4yh_52J-XbSIx0Gw=" alt="Deal Image" class="w-full">
+          <div class="p-4">
+            <h3 class="text-lg font-semibold">Bliss Combo Deal</h3>
+            <p class="text-gray-600">$12.99</p>
+          </div>
+        </div>
+        <!-- Deal 2 -->
+        <!-- Deal 3 -->
+        <!-- Deal 4 -->
+      </div>
+      <!-- Toggle Button -->
+      <button id="toggleDeals" class="mt-4 mx-auto block bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600">Show More Deals</button>
+      <!-- Extra Deals (Initially Hidden) -->
+      <div id="extraDeals" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 hidden">
+        <!-- Deal 5 -->
+        <!-- Deal 6 -->
+        <!-- Deal 7 -->
+        <!-- Deal 8 -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Menu Section -->
+  <section id="menu" class="container mx-auto px-4 py-16">
+    <h2 class="text-3xl font-bold text-center mb-8">Our Menu</h2>
+    <div class="tabs mb-8">
+      <ul class="flex justify-center space-x-4">
+        <li><a href="#" class="tab-link active text-gray-700 hover:text-red-500" onclick="updateMenu(event, 'Classic Burgers')">Classic Burgers</a></li>
+        <li><a href="#" class="tab-link text-gray-700 hover:text-red-500" onclick="updateMenu(event, 'Signature Burgers')">Signature Burgers</a></li>
+        <li><a href="#" class="tab-link text-gray-700 hover:text-red-500" onclick="updateMenu(event, 'Sides')">Sides</a></li>
+        <li><a href="#" class="tab-link text-gray-700 hover:text-red-500" onclick="updateMenu(event, 'Beverages & Desserts')">Beverages & Desserts</a></li>
+        <li><a href="#" class="tab-link text-gray-700 hover:text-red-500" onclick="updateMenu(event, 'Smoothies')">Smoothies</a></li>
+        <li><a href="#" class="tab-link text-gray-700 hover:text-red-500" onclick="updateMenu(event, 'Salads')">Salads</a></li>
+        <li><a href="#" class="tab-link text-gray-700 hover:text-red-500" onclick="updateMenu(event, 'Appetizers')">Appetizers</a></li>
+        <li><a href="#" class="tab-link text-gray-700 hover:text-red-500" onclick="updateMenu(event, 'Chicken & Buffalo Wings')">Chicken & Buffalo Wings</a></li>
+      </ul>
+    </div>
+    <div id="menu-items" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- Menu items will be dynamically loaded here -->
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section id="testimonials" class="bg-white py-16">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center mb-8">What Our Customers Say</h2>
+      <div id="testimonial-carousel" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="flex flex-col items-center">
+              <p class="text-xl text-gray-700 mb-4">"The best burgers I've ever had! Highly recommend Burger Bliss to everyone."</p>
+              <div class="flex items-center">
+                <div class="text-yellow-500 mr-2">★★★★★</div>
+                <p class="text-gray-700">- John Doe</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#testimonial-carousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#testimonial-carousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white py-8">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div>
+          <h3 class="text-lg font-bold mb-4">Follow Us</h3>
+          <div class="flex space-x-4">
+            <a href="#" class="text-gray-300 hover:text-white">Facebook</a>
+            <a href="#" class="text-gray-300 hover:text-white">Twitter</a>
+            <a href="#" class="text-gray-300 hover:text-white">Instagram</a>
+          </div>
+        </div>
+        <div>
+          <h3 class="text-lg font-bold mb-4">Contact Us</h3>
+          <p class="text-gray-300">123 Burger Street</p>
+          <p class="text-gray-300">City, State ZIP</p>
+          <p class="text-gray-300">Phone: (123) 456-7890</p>
+          <p class="text-gray-300">Email: info@burgerbliss.com</p>
+        </div>
+        <div>
+          <h3 class="text-lg font-bold mb-4">Opening Hours</h3>
+          <p class="text-gray-300">Monday - Friday: 11am - 10pm</p>
+          <p class="text-gray-300">Saturday - Sunday: 11am - 11pm</p>
+        </div>
+        <div>
+          <h3 class="text-lg font-bold mb-4">Newsletter</h3>
+          <p class="text-gray-300">Subscribe to our newsletter for latest updates and promotions.</p>
+          <form class="mt-4">
+            <input type="email" class="w-full px-4 py-2 rounded-sm" placeholder="Enter your email">
+            <button type="submit" class="mt-2 bg-red-500 text-white px-4 py-2 rounded-sm hover:bg-red-600">Subscribe</button>
+          </form>
+        </div>
+      </div>
+      <hr class="border-gray-800 my-8">
+      <p class="text-center text-gray-300">© 2024 Burger Bliss. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // JavaScript objects for menu items
+    const menuItems = {
+      "Classic Burgers": [
+        {
+          name: "Classic Cheeseburger",
+          description: "Juicy beef patty, cheddar cheese, lettuce, tomato, pickles, and our signature sauce, all served on a toasted brioche bun.",
+          price: "$10.99"
+        },
+        {
+          name: "Bacon Cheeseburger",
+          description: "Beef patty, crispy bacon, American cheese, lettuce, tomato, and our special house sauce on a sesame seed bun.",
+          price: "$11.99"
+        },
+        {
+          name: "Double Decker Burger",
+          description: "Two beef patties, double cheddar cheese, lettuce, tomato, pickles, and a tangy burger sauce on a toasted brioche bun.",
+          price: "$13.99"
+        }
+      ],
+      "Signature Burgers": [
+        {
+          name: "Signature Burger 1",
+          description: "Description of Signature Burger 1.",
+          price: "$12.99"
+        },
+        {
+          name: "Signature Burger 2",
+          description: "Description of Signature Burger 2.",
+          price: "$14.99"
+        }
+        // Add more signature burgers as needed
+      ],
+      "Sides": [
+        {
+          name: "French Fries",
+          description: "Crispy golden fries, lightly salted.",
+          price: "$3.99"
+        },
+        {
+          name: "Onion Rings",
+          description: "Crispy battered onion rings served with a side of ranch.",
+          price: "$4.99"
+        }
+      ],
+      "Beverages & Desserts": [
+        {
+          name: "Soft Drink",
+          description: "Choose from a variety of soft drinks.",
+          price: "$1.99"
+        },
+        {
+          name: "Milkshake",
+          description: "Thick and creamy milkshakes available in chocolate, vanilla, and strawberry.",
+          price: "$4.99"
+        }
+      ],
+    };
+
+function updateMenu(event, category) {
+  event.preventDefault();
+  const menuItemsContainer = document.getElementById('menu-items');
+  menuItemsContainer.innerHTML = '';
+
+  const selectedCategory = menu.find(item => item.title === category);
+
+  if (selectedCategory) {
+    selectedCategory.items.forEach(item => {
+      const itemElement = document.createElement('div');
+      itemElement.className = 'bg-white p-4 rounded shadow';
+      itemElement.innerHTML = `
+        <h3 class="text-xl font-bold mb-2">${item.name}</h3>
+        <p class="text-gray-700 mb-2">${item.desc}</p>
+        <p class="text-gray-900 font-bold">${item.price}</p>
+      `;
+      menuItemsContainer.appendChild(itemElement);
+    });
+  }
+
+  window.scrollTo({
+    top: menuItemsContainer.offsetTop,
+    behavior: 'smooth'
+  });
+}
+
+// Load default menu category
+document.addEventListener('DOMContentLoaded', () => {
+  updateMenu(new Event('load'), 'Classic Burgers');
+});
+</script>
+</body>
+</html>
+     

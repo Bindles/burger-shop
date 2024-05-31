@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Burger Bliss</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css"  rel="stylesheet" />
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <style>
+    /* Custom Styles */
+    .hero-bg {
+      background-image: url('https://www.foodiesfeed.com/wp-content/uploads/2023/06/burger-with-melted-cheese.jpg');
+      background-size: cover;
+      background-position: center;
+    }
+  </style>
+</head>
+<body class="bg-gray-100 text-gray-900">
+  <!-- Header -->
+  <header class="fixed w-full bg-white shadow-md">
+    <div class="container mx-auto px-4 py-2 flex justify-between items-center">
+      <a href="#" class="text-2xl font-bold text-red-500">Burger Bliss</a>
+      <nav class="space-x-4">
+        <a href="#" onclick="updateMenu(event, 'Classic Burgers')" class="text-gray-700 hover:text-red-500">Classic Burgers</a>
+        <a href="#" onclick="updateMenu(event, 'Signature Burgers')" class="text-gray-700 hover:text-red-500">Signature Burgers</a>
+        <a href="#" onclick="updateMenu(event, 'Sides')" class="text-gray-700 hover:text-red-500">Sides</a>
+        <a href="#" onclick="updateMenu(event, 'Beverages & Desserts')" class="text-gray-700 hover:text-red-500">Beverages & Desserts</a>
+        <a href="#" onclick="updateMenu(event, 'Smoothies')" class="text-gray-700 hover:text-red-500">Smoothies</a>
+        <a href="#" onclick="updateMenu(event, 'Salads')" class="text-gray-700 hover:text-red-500">Salads</a>
+        <a href="#" onclick="updateMenu(event, 'Appetizers')" class="text-gray-700 hover:text-red-500">Appetizers</a>
+        <a href="#" onclick="updateMenu(event, 'Chicken & Buffalo Wings')" class="text-gray-700 hover:text-red-500">Chicken & Buffalo Wings</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="pt-16">
+    <!-- Hero Section -->
+    <section class="hero-bg h-64 flex items-center justify-center">
+      <h1 class="text-white text-4xl font-bold">Welcome to Burger Bliss</h1>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="container mx-auto px-4 py-8">
+      <h2 class="text-3xl font-bold mb-6">Menu</h2>
+      <div id="menu-items" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Menu items will be dynamically inserted here -->
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white py-4">
+    <div class="container mx-auto text-center">
+      <p>© 2024 Burger Bliss. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    const menu = [
+      // Classic Burgers
+      { title: "Classic Burgers", items: [ { name: "Classic Cheeseburger", desc: "Juicy beef patty, cheddar cheese, lettuce, tomato, pickles, and our signature sauce, all served on a toasted brioche bun.", price: "$10.99" }, { name: "Bacon Cheeseburger", desc: "Beef patty, crispy bacon, American cheese, lettuce, tomato, and our special house sauce on a sesame seed bun.", price: "$11.99" }, { name: "Double Decker Burger", desc: "Two beef patties, double cheddar cheese, lettuce, tomato, pickles, and a tangy burger sauce on a toasted brioche bun.", price: "$13.99" }, { name: "BBQ Burger", desc: "Grilled beef patty, barbecue sauce, cheddar cheese, crispy onion rings, and lettuce on a sesame seed bun.", price: "$12.99" } ] },
+      // Signature Burgers
+      { title: "Signature Burgers", items: [ { name: "Truffle Mushroom Burger", desc: "Prime beef patty, sautéed mushrooms, Swiss cheese, truffle aioli, and arugula on a pretzel bun.", price: "$14.99" }, { name: "Spicy BBQ Bacon Burger", desc: "Spicy BBQ sauce, crispy bacon, pepper jack cheese, onion rings, and jalapeños on a sesame seed bun.", price: "$13.99" }, { name: "Blue Cheese Bliss", desc: "Beef patty, blue cheese crumbles, caramelized onions, arugula, and garlic aioli on a toasted brioche bun.", price: "$14.49" }, { name: "Vegan Delight", desc: "Grilled veggie patty, avocado, vegan cheese, lettuce, tomato, and vegan mayo on a whole wheat bun.", price: "$12.99" } ] },
+      // Sides
+      { title: "Sides", items: [ { name: "Classic Fries", desc: "Golden crispy fries seasoned with sea salt.", price: "$3.99" }, { name: "Sweet Potato Fries", desc: "Sweet potato fries served with a side of spicy mayo.", price: "$4.99" }, { name: "Onion Rings", desc: "Crunchy onion rings served with a side of ranch dressing.", price: "$5.49" }, { name: "Loaded Fries", desc: "Fries topped with melted cheese, crispy bacon bits, and green onions.", price: "$6.99" } ] },
+      // Beverages & Desserts
+      { title: "Beverages & Desserts", items: [ { name: "Soft Drinks", desc: "Choice of Coke, Diet Coke, Sprite, or Root Beer.", price: "$2.99" }, { name: "Handcrafted Lemonade", desc: "Freshly squeezed lemonade served over ice.", price: "$3.49" }, { name: "Milkshakes", desc: "Vanilla, chocolate, or strawberry milkshakes topped with whipped cream.", price: "$5.99" }, { name: "Cheesecake", desc: "Classic New York-style cheesecake with a graham cracker crust.", price: "$6.49" }, { name: "Chocolate Brownie Sundae", desc: "Warm chocolate brownie topped with vanilla ice cream, hot fudge, and whipped cream.", price: "$6.99" } ] },
+      // Smoothies
+      { title: "Smoothies", items: [ { name: "Berry Blast Smoothie", desc: "A blend of strawberries, blueberries, raspberries, and Greek yogurt.", price: "$6.49" }, { name: "Tropical Paradise Smoothie", desc: "Mango, pineapple, banana, and coconut milk.", price: "$6.49" }, { name: "Green Detox Smoothie", desc: "Spinach, kale, green apple, banana, and almond milk.", price: "$6.49" }, { name: "Peanut Butter Banana Smoothie", desc: "Peanut butter, banana, Greek yogurt, and honey.", price: "$6.49" } ] },
+      // Salads
+      { title: "Salads", items: [ { name: "Caesar Salad", desc: "Crisp romaine lettuce, parmesan cheese, croutons, and Caesar dressing.", price: "$8.99" }, { name: "Greek Salad", desc: "Mixed greens, tomatoes, cucumbers, red onions, olives, feta cheese, and Greek dressing.", price: "$9.99" }, { name: "Southwest Chicken Salad", desc: "Grilled chicken, black beans, corn, avocado, tomatoes, mixed greens, and chipotle ranch dressing.", price: "$12.99" }, { name: "Caprese Salad", desc: "Fresh mozzarella, tomatoes, basil, and balsamic glaze.", price: "$10.99" } ] },
+      // Appetizers
+      { title: "Appetizers", items: [ { name: "Mozzarella Sticks", desc: "Breaded mozzarella sticks served with marinara sauce.", price: "$7.99" }, { name: "Buffalo Wings", desc: "Spicy buffalo wings served with celery and blue cheese dressing.", price: "$9.99" }, { name: "Nachos Supreme", desc: "Tortilla chips topped with melted cheese, jalapeños, sour cream, guacamole, and salsa.", price: "$8.99" }, { name: "Stuffed Jalapeños", desc: "Jalapeños stuffed with cream cheese and wrapped in bacon.", price: "$7.99" } ] },
+      // Chicken & Buffalo Wings
+      { title: "Chicken & Buffalo Wings", items: [ { name: "Classic Buffalo Wings", desc: "Crispy wings tossed in traditional buffalo sauce, served with celery and blue cheese dressing.", price: "$10.99" }, { name: "Honey BBQ Wings", desc: "Sweet and tangy honey BBQ sauce on crispy wings, served with ranch dressing.", price: "$11.49" }, { name: "Garlic Parmesan Wings", desc: "Wings tossed in garlic butter and parmesan cheese, served with a side of ranch.", price: "$11.99" }, { name: "Spicy Korean Wings", desc: "Wings coated in a spicy Korean gochujang sauce, served with sesame seeds and green onions.", price: "$12.49" }, { name: "Lemon Pepper Wings", desc: "Crispy wings dusted with lemon pepper seasoning, served with ranch dressing.", price: "$11.99" }, { name: "Teriyaki Wings", desc: "Wings glazed with a sweet and savory teriyaki sauce, topped with sesame seeds.", price: "$11.49" }, { name: "Buffalo Tenders", desc: "Crispy chicken tenders tossed in buffalo sauce, served with celery and blue cheese dressing.", price: "$11.99" }, { name: "Honey Sriracha Tenders", desc: "Chicken tenders coated in a spicy honey sriracha sauce, served with ranch dressing.", price: "$12.49" }, { name: "Southern Fried Chicken", desc: "Buttermilk marinated chicken, deep-fried to a golden brown, served with a side of coleslaw.", price: "$14.99" }, { name: "Grilled Chicken Breast", desc: "Marinated grilled chicken breast, served with a side of steamed vegetables and rice.", price: "$13.99" }, { name: "Chicken Alfredo", desc: "Grilled chicken breast served over fettuccine pasta with creamy Alfredo sauce.", price: "$15.99" } ] }
+    ];
+
+    function updateMenu(event, category) {
+      event.preventDefault();
+      const menuItemsContainer = document.getElementById('menu-items');
+      menuItemsContainer.innerHTML = '';
+
+      const selectedCategory = menu.find(item => item.title === category);
+
+      if (selectedCategory) {
+        selectedCategory.items.forEach(item => {
+          const itemElement = document.createElement('div');
+          itemElement.className = 'bg-white p-4 rounded shadow';
+          itemElement.innerHTML = `
+            <h3 class="text-xl font-bold mb-2">${item.name}</h3>
+            <p class="text-gray-700 mb-2">${item.desc}</p>
+            <p class="text-gray-900 font-bold">${item.price}</p>
+          `;
+          menuItemsContainer.appendChild(itemElement);
+        });
+      }
+
+      window.scrollTo({
+        top: menuItemsContainer.offsetTop,
+        behavior: 'smooth'
+      });
+    }
+
+    // Load default menu category
+    document.addEventListener('DOMContentLoaded', () => {
+      updateMenu(new Event('load'), 'Classic Burgers');
+    });
+  </script>
+</body>
+</html>
