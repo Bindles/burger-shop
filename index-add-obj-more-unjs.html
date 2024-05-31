@@ -54,9 +54,9 @@
             <p class="text-gray-600">$12.99</p>
           </div>
         </div>
-        <!-- Deal 2 -->
-        <!-- Deal 3 -->
-        <!-- Deal 4 -->
+          <!-- Deal 2 -->
+          <!-- Deal 3 -->
+          <!-- Deal 4 -->
       </div>
       <!-- Toggle Button -->
       <button id="toggleDeals" class="mt-4 mx-auto block bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600">Show More Deals</button>
@@ -75,14 +75,15 @@
     <h2 class="text-3xl font-bold text-center mb-8">Our Menu</h2>
     <div class="tabs mb-8">
       <ul class="flex justify-center space-x-4">
-        <li><a href="#" class="tab-link active text-gray-700 hover:text-red-500" onclick="updateMenu(event, 'Classic Burgers')">Classic Burgers</a></li>
-        <li><a href="#" class="tab-link text-gray-700 hover:text-red-500" onclick="updateMenu(event, 'Signature Burgers')">Signature Burgers</a></li>
+        <li><a href="#classic-burgers" class="tab-link active text-gray-700 hover:text-red-500">Classic Burgers</a></li>
+        <li><a href="#signature-burgers" class="tab-link text-gray-700 hover:text-red-500">Signature Burgers</a></li>
         <!-- Add other categories -->
       </ul>
     </div>
     <div id="menu-items" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
       <!-- Menu items will be dynamically loaded here -->
     </div>
+    
   </section>
 
   <!-- Testimonials Section -->
@@ -171,7 +172,14 @@
         name: "Double Decker Burger",
         description: "Two beef patties, double cheddar cheese, lettuce, tomato, pickles, and a tangy burger sauce on a toasted brioche bun.",
         price: "$13.99"
+      },
+
+      {
+        name: "Double Decker Burger",
+        description: "Two beef patties, double cheddar cheese, lettuce, tomato, pickles, and a tangy burger sauce on a toasted brioche bun.",
+        price: "$13.99"
       }
+
     ],
     "Signature Burgers": [
       {
@@ -189,13 +197,15 @@
   };
 
   // Function to update menu based on clicked link
-  function updateMenu(event, category) {
-    event.preventDefault();
+  function updateMenu(category) {
+    console.log('Updating menu for category:', category); // Debugging
     const menuItemsContainer = document.getElementById("menu-items");
+    console.log('Menu items container:', menuItemsContainer); // Debugging
     // Hide all menu items
     menuItemsContainer.innerHTML = "";
     // Retrieve menu items for the clicked category
     const items = menuItems[category];
+    console.log('Items:', items); // Debugging
     // Display menu items for the clicked category
     items.forEach(item => {
       const menuItem = `
@@ -207,12 +217,13 @@
       `;
       menuItemsContainer.innerHTML += menuItem;
     });
-    // Smooth scroll to the menu section
-    document.getElementById("menu").scrollIntoView({ behavior: "smooth" });
   }
 
+
+
+
   // Initial update of menu on page load
-  updateMenu(new Event('load'), "Classic Burgers");
+  updateMenu("Classic Burgers");
 </script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
